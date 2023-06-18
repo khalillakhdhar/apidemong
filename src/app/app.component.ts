@@ -22,5 +22,22 @@ export class AppComponent {
     }
 
     )
+    this.addTodo();
+    this.todoService.deleteTodo(123).subscribe((data)=>
+    {
+      console.log("deleted",data)
+    })
+  }
+  addTodo()
+  {
+    let todo=new Todo();
+    todo.completed=true;
+    todo.id=203;
+    todo.title="hello world";
+    todo.userId=5;
+this.todoService.addTodo(todo).subscribe(data=>
+  {
+    console.log("added todo",data)
+  })
   }
 }

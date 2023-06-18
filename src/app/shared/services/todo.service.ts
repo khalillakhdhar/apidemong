@@ -14,4 +14,14 @@ url="https://jsonplaceholder.typicode.com/todos"
     return this.http.get<Todo[]>(this.url);
 
   }
+  addTodo(todo: Todo): Observable<Todo>
+  {
+    return this.http.post<Todo>(this.url,todo);
+  }
+  deleteTodo(id:number)
+  {
+    return this.http.delete<Todo>(this.url+"/"+id);
+
+  }
+
 }
